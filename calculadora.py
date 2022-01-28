@@ -123,8 +123,7 @@ class Calculadora:
         self.update_label()
 
     def cria_botoes_operadores(self):
-        i = 0
-        for operator, symbol in self.operacoes.items():
+        for i, (operator, symbol) in enumerate(self.operacoes.items()):
             button = tk.Button(
                 self.botoes_tela,
                 text=symbol,
@@ -135,7 +134,6 @@ class Calculadora:
                 command=lambda x=operator: self.acrescenta_operador(x),
             )
             button.grid(row=i, column=4, sticky=tk.NSEW)
-            i += 1
 
     def limpar(self):
         self.expressao_atual = ""
